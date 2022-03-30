@@ -3,17 +3,25 @@
 @section('main_content')
 <a href="{{ route('admin.posts.index') }}" class="btn btn-big btn-outline-info mb-4">Back to Index</a>
 
-<form action="{{ route('admin.posts.store') }}" method="POST">
+<form action="{{ route('admin.posts.store') }}" method="POST" class="row">
 	@csrf
-	<div class="mb-3">
+	<div class="col-8 mb-3">
 		<label for="title" class="form-label">Title</label>
 		<input type="text" name="title" class="form-control" id="title">
 	</div>
-	<div class="mb-3">
+	<div class="col-4 mb-3 d-flex align-items-end">
+		<select class="form-select" name="category_id">
+			<option value="">No Categories</option>
+			@foreach($categories as $c)
+			<option value="{{ $c->id }}">{{ $c->label }}</option>
+			@endforeach
+		</select>
+	</div>
+	<div class="col-12 mb-3">
 		<label for="content" class="form-label">Content</label>
 		<textarea name="content" class="form-control" id="content" rows="10"></textarea>
 	</div>
-	<div class="mb-3">
+	<div class="col-12 mb-3">
 		<label for="image" class="form-label">Image URL</label>
 		<input type="text" name="image" class="form-control" id="image" placeholder="http://placeholder.jpg">
 	</div>

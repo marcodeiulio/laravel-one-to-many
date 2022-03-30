@@ -19,10 +19,12 @@
 	</div>
 </div>
 <div class="d-flex justify-content-center">
-	<div class="card" style="width: 18rem;">
+	<div class="card bg-dark text-white" style="width: 18rem;">
 		<img src="{{ $post->image }}" class="card-img-top" alt="{{ $post->title }}">
 		<div class="card-body">
-			<h5 class="card-title">{{ $post->title }}</h5>
+			<h5 class="card-title">{{ $post->title }}
+				<span class="badge bg-{{ $post->category->color }} @if($post->category->color === 'warning' || $post->category->color === 'info' || $post->category->color === 'light') text-dark @endif">{{ $post->category->label }}</span>
+			</h5>
 			<p class="card-text">{{ $post->content }}</p>
 		</div>
 	</div>
