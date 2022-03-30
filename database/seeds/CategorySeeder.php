@@ -20,6 +20,7 @@ class CategorySeeder extends Seeder
             ['label' => 'SQL', 'color' => 'secondary'],
             ['label' => 'Laravel', 'color' => 'danger'],
             ['label' => 'VueJS', 'color' => 'success'],
+            ['label' => 'Bootstrap', 'color' => 'light'],
         ];
 
         foreach ($categories as $category) {

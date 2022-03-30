@@ -29,7 +29,12 @@
 		<tr>
 			<th scope="row">{{ $post->id }}</th>
 			<td>{{ $post->title }}</td>
-			<td>{{ $post->category->label }}</td>
+			<td>
+				@if($post->category)
+				<span class="badge bg-{{ $post->category->color }} @if($post->category->color === 'warning' || $post->category->color === 'info' || $post->category->color === 'light') text-dark @endif">{{ $post->category->label }}</span>
+				@else -
+				@endif
+			</td>
 			<td>{{ $post->slug }}</td>
 			{{-- <td>{{ $post->created_at }}</td> --}}
 			<td>{{ $post->updated_at }}</td>
